@@ -57,6 +57,7 @@ def _derive_serial(full_name: str, dob_str: str, district_num: int) -> tuple[str
     serial = f"{numeric:08d}"
     return serial[:4], serial[4:]
 
+# TODO: Generate DD on the correct district & should force the player to generate planet, district and microdistrict first
 
 def generate_registration_number(
     planet: str,

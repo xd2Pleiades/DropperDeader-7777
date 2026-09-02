@@ -37,3 +37,35 @@ def generate_origin(region: str) -> tuple[str, str]:
     district_label = f"District {district_num}"
     microdistrict_code = _generate_microdistrict_code(district_num)
     return district_label, microdistrict_code
+
+# TODO: Fix, include all planets add planet codes and their districts
+"""
+Federation of Octavosol / Emergency Assembly Union
+EAU MEMBERS
+Dominant Species
+Theme/Inspiration 
+Capital Karo
+Homo Sapiens Sapiens
+Federal State
+Planet State of Utrique
+Homo Sapiens Sapiens
+Corporate Federative State
+Planet State of Caogo
+Neo-Homo Sapien Habilis
+Democratic Federative State
+Planet State of Duris
+Homo Sapiens Sapiens
+Corporate Federative State
+Theocracy of Oro
+Neo-Sapiens Mars
+Aristocratic State
+Planet State of Baifvis
+Homo Sapiens Sapiens
+Federal State
+Planet State Bafwerk
+Homo Sapiens Sapiens
+Federal State
+Theocracy Latro
+ Sons of Mars
+Aristocratic State
+"""
