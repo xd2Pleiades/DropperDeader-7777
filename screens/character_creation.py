@@ -11,7 +11,7 @@ import random
 from data.name import generate_name
 from data.dob import generate_dob, format_dob, MIN_AGE, MAX_AGE
 from data.dist import generate_origin, generate_district, LOCATIONS
-from data.registration import generate_registration_number
+from data.registration import generate_registration_number, PLANET_CODES
 
 
 class CharacterCreation(Screen):
@@ -33,6 +33,11 @@ class CharacterCreation(Screen):
     # TODO: this should come from the scenario/district the player picked in
     # the scenario screen (Karo / Duris / outer_rings), not be hardcoded.
     DEFAULT_DISTRICT = "karo"
+    DEFAULT_PLANET = "karo"  # this tab is specifically "Karo SSA Registration"
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self._generated_dob_str: str = ""
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -98,11 +103,30 @@ class CharacterCreation(Screen):
             self.notify("Back to scenario screen.")
 
         elif button_id == "gen_rn":
-            # Karo SSA registration is always issued under the karo region,
-            # regardless of where District of Origin / Current District land.
+            first = self.query_one("#first_name", Input).value.strip()
+            last = self.query_one("#last_name", Input).value.strip()
+            dob_str = self._generated_dob_str
+
+            if not first or not last:
+                self.notify("Generate or enter a name before generating a registration number.", severity="warning")
+                return
+            if not dob_str:
+                self.notify("Generate a date of birth before generating a registration number.", severity="warning")
+                return
+
+            middle = self.query_one("#middle_name", Input).value.strip()
+            full_name = " ".join(part for part in (first, middle, last) if part)
+
             district_label = generate_district(self.DEFAULT_DISTRICT)
             district_num = int(district_label.split()[-1])
-            rn = generate_registration_number(self.DEFAULT_DISTRICT, district_num)
+
+            rn = generate_registration_number(
+                planet=self.DEFAULT_PLANET,
+                region=self.DEFAULT_DISTRICT,
+                district_num=district_num,
+                full_name=full_name,
+                dob_str=dob_str,
+            )
             self.query_one("#reg_number_value", Label).update(rn)
 
         elif button_id == "gen_name":
@@ -138,7 +162,9 @@ class CharacterCreation(Screen):
                 return
 
             dob = generate_dob(min_age=age, max_age=age)
-            self.query_one("#birth_date_value", Label).update(format_dob(dob))
+            dob_str = format_dob(dob)
+            self._generated_dob_str = dob_str
+            self.query_one("#birth_date_value", Label).update(dob_str)
 
         elif button_id == "gen_district_origin":
             district, microdistrict = generate_origin(self.DEFAULT_DISTRICT)
