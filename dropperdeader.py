@@ -4,6 +4,8 @@ Screen Manager
 """
 from textual.app import App
 from screens.main_menu import MainMenu
+from screens.scenario import Scenario
+from screens.character_creation import CharacterCreation
 
 
 class DropperDeader(App):
