@@ -9,17 +9,19 @@ SCENARIOS = {
             "No Connections",
             "No Health Conditions",
         ]
+        "planet": "utrique" "caogo" "baifvis" "bafwerk",
     },
     "inherited_debt": {
         "title": "Inherited Debt",
         "description": "Your parent died and left you their flat. You also inherited their debt to three different creditors, two of which aren't Federal registered. The flat is yours but people are already knocking.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "Stable Income - High Debt & Interest",
             "Uninsured Medium Housing",
             "Low to Medium Connections (50%)",
             "Little Health Complications due to exposure to atmospheric pollution",
-        ]
+        ],
+        "planet": "karo",
     },
     "the_undocumented": {
         "title": "The Undocumented",
@@ -30,12 +32,13 @@ SCENARIOS = {
             "No Housing",
             "Random Connections (5% Low to Medium)",
             "High Health Complications due to severe exposure to the planet's pollution and climate",
-        ]
+        ],
+        "planet": "karo" "utrique" "caogo" "baifvis" "bafwerk",
     },
     "corporate_transfer": {
         "title": "Corporate Transfer",
         "description": "You were relocated by your employer from Duris to Karo for reassignment. You have a job, a temporary corporate housing unit, and a manager who already doesn't like you.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "Stable Income",
             "Medium Housing",
@@ -46,76 +49,82 @@ SCENARIOS = {
     "third_generation": {
         "title": "Third Generation",
         "description": "Your family has been in this district since the Stockwars. You know everyone and everyone knows you. That's not always a good thing.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "Stable Income",
             "Medium Housing",
             "High Connections",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
-        ]
+        ],
+        "planet": "karo",
     },
     "ration_runner": {
         "title": "Ration Runner",
         "description": "You move goods between districts. Not all of it is legal. You know the city's back channels better than anyone but the margins are getting tighter and someone is undercutting you.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "Criminal Income",
             "No Housing",
             "Criminal Connections",
             "Start with weapons, armor and registered vehicle",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
-        ]
+        ],
+        "planet": "karo",
     },
     "witness": {
         "title": "The Witness",
         "description": "You saw something in your district three nights ago. You don't know what it means yet. People have started behaving differently around you.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "Anomalies",
             "Stable Income",
             "Medium Housing",
             "Medium Connections",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
-        ]
+        ],
+        "planet": "karo",
     },
     "corrupt": {
         "title": "Corrupt",
         "description": "You are inside the system and you are eating it from within. Whether you are an SSA clerk skimming ration allocations, an Adamla warden taking bribes, or a City Department officer on someone's payroll. You have bent the rules so far they no longer look bent to you. The question is how long before it catches up.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "High Income - Money Laundering Operations",
             "Medium Housing",
             "High Connections - High Risk",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
-        ]
+        ],
+        "planet": "karo",
     },
     "prodigal_son": {
         "title": "Prodigal & Loyal Son",
         "description": "You came back or you never left. Either way the district has a claim on you. Debts, reputation, obligation, love. Your family name opens doors and closes others. You are not just a person here, you are a continuation of something.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "High Income",
             "Luxurious Housing",
             "High Connections - Very High Risk",
             "High rate of assassinations & social friction",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
-        ]
+        ],
+        "planet": "karo" "utrique" "caogo" "baifvis" "bafwerk",
     },
     "alone": {
         "title": "Alone",
         "description": "No family, no network, no registration maybe. Nothing to lose and nobody to catch you when you fall. The most dangerous kind of person on Karo, completely unaccountable.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "Stable Income",
             "Medium Housing",
             "No Connections",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
-        ]
+        ],
+        "planet": "karo" "utrique" "caogo" "baifvis" "bafwerk" "oro" "latro",
     },
     "regiment_661": {
         "title": "Regiment 661: Droppers & Ne'er the Deaders",
         "description": "You are one of the Arcturus mandatory enlisted and you are on a planet of Lebenikl facing a fully new different enemy and threats than the cities and concrete and stone of Karo. You are at war.",
-        "playable": None,
+        "playable": False,
         "start_with": [
             "Military Loadout",
             "Random Income",
@@ -123,6 +132,7 @@ SCENARIOS = {
             "Random Connections",
             "Genetically & Physically Enhanced",
             "Persistent Threats",
-        ]
+        ],
+        "planet": "karo" "utrique" "caogo" "baifvis" "bafwerk" "oro" "latro",
     },
 }
