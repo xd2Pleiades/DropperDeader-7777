@@ -8,8 +8,8 @@ SCENARIOS = {
             "Low Income Housing",
             "No Connections",
             "No Health Conditions",
-        ]
-        "planet": "utrique" "caogo" "baifvis" "bafwerk",
+        ],
+        "planet": ["utrique", "caogo", "baifvis", "bafwerk"],
     },
     "inherited_debt": {
         "title": "Inherited Debt",
@@ -21,7 +21,7 @@ SCENARIOS = {
             "Low to Medium Connections (50%)",
             "Little Health Complications due to exposure to atmospheric pollution",
         ],
-        "planet": "karo",
+        "planet": ["karo"],
     },
     "the_undocumented": {
         "title": "The Undocumented",
@@ -33,7 +33,7 @@ SCENARIOS = {
             "Random Connections (5% Low to Medium)",
             "High Health Complications due to severe exposure to the planet's pollution and climate",
         ],
-        "planet": "karo" "utrique" "caogo" "baifvis" "bafwerk",
+        "planet": ["karo", "utrique", "caogo", "baifvis", "bafwerk"],
     },
     "corporate_transfer": {
         "title": "Corporate Transfer",
@@ -44,7 +44,8 @@ SCENARIOS = {
             "Medium Housing",
             "Medium Connections",
             "No Health Conditions",
-        ]
+        ],
+        "planet": ["karo"],
     },
     "third_generation": {
         "title": "Third Generation",
@@ -56,7 +57,7 @@ SCENARIOS = {
             "High Connections",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
         ],
-        "planet": "karo",
+        "planet": ["karo"],
     },
     "ration_runner": {
         "title": "Ration Runner",
@@ -69,7 +70,7 @@ SCENARIOS = {
             "Start with weapons, armor and registered vehicle",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
         ],
-        "planet": "karo",
+        "planet": ["karo"],
     },
     "witness": {
         "title": "The Witness",
@@ -82,7 +83,7 @@ SCENARIOS = {
             "Medium Connections",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
         ],
-        "planet": "karo",
+        "planet": ["karo"],
     },
     "corrupt": {
         "title": "Corrupt",
@@ -94,7 +95,7 @@ SCENARIOS = {
             "High Connections - High Risk",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
         ],
-        "planet": "karo",
+        "planet": ["karo"],
     },
     "prodigal_son": {
         "title": "Prodigal & Loyal Son",
@@ -107,7 +108,7 @@ SCENARIOS = {
             "High rate of assassinations & social friction",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
         ],
-        "planet": "karo" "utrique" "caogo" "baifvis" "bafwerk",
+        "planet": ["karo", "utrique", "caogo", "baifvis", "bafwerk"],
     },
     "alone": {
         "title": "Alone",
@@ -119,7 +120,7 @@ SCENARIOS = {
             "No Connections",
             "High Health & Genetic Complications due to severe exposure to the planet's pollution and climate",
         ],
-        "planet": "karo" "utrique" "caogo" "baifvis" "bafwerk" "oro" "latro",
+        "planet": ["karo", "utrique", "caogo", "baifvis", "bafwerk", "oro", "latro"],
     },
     "regiment_661": {
         "title": "Regiment 661: Droppers & Ne'er the Deaders",
@@ -133,6 +134,6 @@ SCENARIOS = {
             "Genetically & Physically Enhanced",
             "Persistent Threats",
         ],
-        "planet": "karo" "utrique" "caogo" "baifvis" "bafwerk" "oro" "latro",
+        "planet": ["karo", "utrique", "caogo", "baifvis", "bafwerk", "oro", "latro"],
     },
 }
