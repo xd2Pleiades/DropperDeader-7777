@@ -1,6 +1,7 @@
 from __future__ import annotations
-from datetime import date, timedelta
+
 import random
+from datetime import date, timedelta
 
 # In-universe "today" — character creation always happens as of this date.
 # Real Gregorian months/days are kept, just with the year set far into the
@@ -12,9 +13,9 @@ MAX_AGE = 80
 
 
 def generate_dob(
-    min_age: int = MIN_AGE,
-    max_age: int = MAX_AGE,
-    as_of: date | None = None,
+        min_age: int = MIN_AGE,
+        max_age: int = MAX_AGE,
+        as_of: date | None = None,
 ) -> date:
     """
     Generate a date of birth using real-world month/day numbering, but

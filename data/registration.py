@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import hashlib
 
 # PP-RRRR-DD-NNNN-NNNN-CC
@@ -20,7 +21,7 @@ PLANET_CODES = {
     "karo": "01",
     "utrique": "02",
     "caogo": "03",
-    "duris": "04",       # the PLANET Duris (see naming-collision note above)
+    "duris": "04",  # the PLANET Duris (see naming-collision note above)
     "oro": "05",
     "baifvis": "06",
     "bafwerk": "07",
@@ -29,7 +30,7 @@ PLANET_CODES = {
 
 REGION_CODES = {
     "karo": "0001",
-    "duris": "0002",     # Karo-internal region, NOT the planet
+    "duris": "0002",  # Karo-internal region, NOT the planet
     "outer_rings": "0003",
 }
 
@@ -53,18 +54,19 @@ def _derive_serial(full_name: str, dob_str: str, district_num: int) -> tuple[str
     """
     seed = f"{full_name.strip().lower()}|{dob_str}|{district_num}"
     digest = hashlib.sha256(seed.encode("utf-8")).hexdigest()
-    numeric = int(digest, 16) % 10**8
+    numeric = int(digest, 16) % 10 ** 8
     serial = f"{numeric:08d}"
     return serial[:4], serial[4:]
+
 
 # TODO: Generate DD on the correct district & should force the player to generate planet, district and microdistrict first
 
 def generate_registration_number(
-    planet: str,
-    region: str,
-    district_num: int,
-    full_name: str,
-    dob_str: str,
+        planet: str,
+        region: str,
+        district_num: int,
+        full_name: str,
+        dob_str: str,
 ) -> str:
     """
     :param planet: key into PLANET_CODES

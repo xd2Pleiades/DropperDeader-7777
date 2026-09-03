@@ -19,9 +19,12 @@ SYLLABLES = {
 }
 
 LAST_NAME_SYLLABLES = {
-    "karo": {"onset": ["Van", "Sol", "Kas", "Mar", "On", "Far"], "mid": ["ta", "he", "tre", "ro", "di"], "end": ["ger", "im", "el", "ow", "ine"]},
-    "duris": {"onset": ["Dun", "Ach", "Kes", "Bra", "Volk", "Sa"], "mid": ["mo", "ter", "sle", "nt", "de"], "end": ["re", "berg", "ler", "ner", "e"]},
-    "outer_rings": {"onset": ["Hal", "Cr", "Ban", "Fer", "Wren", "Dac"], "mid": ["low", "ic", "tam", "ro", "lo"], "end": ["way", "k", "m", "w", "e"]},
+    "karo": {"onset": ["Van", "Sol", "Kas", "Mar", "On", "Far"], "mid": ["ta", "he", "tre", "ro", "di"],
+             "end": ["ger", "im", "el", "ow", "ine"]},
+    "duris": {"onset": ["Dun", "Ach", "Kes", "Bra", "Volk", "Sa"], "mid": ["mo", "ter", "sle", "nt", "de"],
+              "end": ["re", "berg", "ler", "ner", "e"]},
+    "outer_rings": {"onset": ["Hal", "Cr", "Ban", "Fer", "Wren", "Dac"], "mid": ["low", "ic", "tam", "ro", "lo"],
+                    "end": ["way", "k", "m", "w", "e"]},
 }
 
 

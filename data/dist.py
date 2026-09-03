@@ -38,6 +38,7 @@ def generate_origin(region: str) -> tuple[str, str]:
     microdistrict_code = _generate_microdistrict_code(district_num)
     return district_label, microdistrict_code
 
+
 # TODO: Fix, include all planets add planet codes and their districts
 """
 Federation of Octavosol / Emergency Assembly Union
