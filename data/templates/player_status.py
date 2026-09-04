@@ -2,8 +2,8 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 
-from data.body import BodyPart, build_default_body
-from data.personality import Personality, Traits
+from data.templates.body import BodyPart, build_default_body
+from data.templates.personality import Personality, Traits
 
 
 # ---REFERENCE DICTS--------------------------
