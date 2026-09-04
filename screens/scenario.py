@@ -1,11 +1,12 @@
-#scenario
+# scenario
 """
 Scenario selection page
 """
 from textual.app import ComposeResult
+from textual.containers import VerticalScroll, Horizontal
 from textual.screen import Screen
 from textual.widgets import Header, Footer, Button, Label
-from textual.containers import VerticalScroll, Horizontal
+
 from data.scenarios import SCENARIOS
 
 

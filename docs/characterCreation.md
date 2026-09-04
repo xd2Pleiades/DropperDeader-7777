@@ -9,7 +9,8 @@ Character Creation is divided into two primary panels:
 
 The left panel displays the character's current state and accumulated information.
 
-The right panel progresses the character through their life, presenting decisions and random events that shape the character over time.
+The right panel progresses the character through their life, presenting decisions and random events that shape the
+character over time.
 
 ---
 
@@ -39,9 +40,9 @@ Contains the character's current and historical health information.
 
 * General Health
 * Physical Health
-  * Physical Build
-    * Limb by Limb breakdown
-      * Organ by Organ breakdown
+    * Physical Build
+        * Limb by Limb breakdown
+            * Organ by Organ breakdown
 * Mental Health
 * Conditions
 * Injuries
@@ -210,7 +211,8 @@ Each age may introduce:
 
 Not every age needs to contain an event.
 
-The purpose of the simulation is to create a believable life history without requiring the player to make a decision for every single year.
+The purpose of the simulation is to create a believable life history without requiring the player to make a decision for
+every single year.
 
 ---
 

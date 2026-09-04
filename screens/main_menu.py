@@ -1,11 +1,11 @@
-#main_menu
+# main_menu
 """
 Main Menu UIX
 """
 from textual.app import ComposeResult
+from textual.containers import Vertical
 from textual.screen import Screen
 from textual.widgets import Header, Footer, Button, Label
-from textual.containers import Vertical
 
 
 class MainMenu(Screen):

@@ -1,9 +1,8 @@
-
-#data\status\player_status.py
+# data\status\player_status.py
 
 from __future__ import annotations
-from dataclasses import dataclass, field
 
+from dataclasses import dataclass, field
 
 # ---BASE STATS---------------------------
 

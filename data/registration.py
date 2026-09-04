@@ -26,29 +26,29 @@ PLANET_CODES = {
 
 REGION_CODES = {
     # Karo
-    "karo":         "0001",
-    "outer_rings":  "0002",
+    "karo": "0001",
+    "outer_rings": "0002",
     # Utrique
-    "utrique_r1":   "0003",
-    "utrique_r2":   "0004",
+    "utrique_r1": "0003",
+    "utrique_r2": "0004",
     # Caogo
-    "caogo_r1":     "0005",
-    "caogo_r2":     "0006",
+    "caogo_r1": "0005",
+    "caogo_r2": "0006",
     # Duris
-    "duris_r1":     "0007",
-    "duris_r2":     "0008",
+    "duris_r1": "0007",
+    "duris_r2": "0008",
     # Oro
-    "oro_r1":       "0009",
-    "oro_r2":       "0010",
+    "oro_r1": "0009",
+    "oro_r2": "0010",
     # Baifvis
-    "baifvis_r1":   "0011",
-    "baifvis_r2":   "0012",
+    "baifvis_r1": "0011",
+    "baifvis_r2": "0012",
     # Bafwerk
-    "bafwerk_r1":   "0013",
-    "bafwerk_r2":   "0014",
+    "bafwerk_r1": "0013",
+    "bafwerk_r2": "0014",
     # Latro
-    "latro_r1":     "0015",
-    "latro_r2":     "0016",
+    "latro_r1": "0015",
+    "latro_r2": "0016",
 }
 
 
@@ -75,8 +75,6 @@ def _derive_serial(full_name: str, dob_str: str, district_num: int) -> tuple[str
     serial = f"{numeric:08d}"
     return serial[:4], serial[4:]
 
-
-# TODO: Generate DD on the correct district & should force the player to generate planet, district and microdistrict first
 
 def generate_registration_number(
         planet: str,

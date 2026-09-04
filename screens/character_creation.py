@@ -1,21 +1,21 @@
-#character_creation.py
+# character_creation.py
 """
 Character creation page
 """
-from textual.app import ComposeResult
-from textual.screen import Screen
-from textual.widgets import Header, Footer, Button, Label, TabbedContent, TabPane, Input
-from textual.containers import Horizontal, VerticalScroll
 import random
 
-from data.name import generate_name
+from textual.app import ComposeResult
+from textual.containers import Horizontal, VerticalScroll
+from textual.screen import Screen
+from textual.widgets import Header, Footer, Button, Label, TabbedContent, TabPane, Input
+
+from data.dist import generate_origin, LOCATIONS
 from data.dob import generate_dob, format_dob, MIN_AGE, MAX_AGE
-from data.dist import generate_origin, generate_district, LOCATIONS
-from data.registration import generate_registration_number, PLANET_CODES
+from data.name import generate_name
+from data.registration import generate_registration_number
 
 
 class CharacterCreation(Screen):
-
     CSS = """
     TabbedContent {
         width: 60%;

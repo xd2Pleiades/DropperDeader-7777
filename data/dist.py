@@ -10,14 +10,14 @@ def _generate_microdistrict_code(district_num: int) -> str:
 
 
 LOCATIONS = {
-    "karo":    {"district_range": (1,   20)},   # Capital — Federal State
-    "utrique": {"district_range": (21,  40)},   # Corporate Federative State
-    "caogo":   {"district_range": (41,  60)},   # Democratic Federative State
-    "duris":   {"district_range": (61,  80)},   # Corporate Federative State
-    "oro":     {"district_range": (81,  100)},  # Theocracy — Aristocratic State
+    "karo": {"district_range": (1, 20)},  # Capital — Federal State
+    "utrique": {"district_range": (21, 40)},  # Corporate Federative State
+    "caogo": {"district_range": (41, 60)},  # Democratic Federative State
+    "duris": {"district_range": (61, 80)},  # Corporate Federative State
+    "oro": {"district_range": (81, 100)},  # Theocracy — Aristocratic State
     "baifvis": {"district_range": (101, 120)},  # Federal State
     "bafwerk": {"district_range": (121, 140)},  # Federal State
-    "latro":   {"district_range": (141, 160)},  # Theocracy — Aristocratic State
+    "latro": {"district_range": (141, 160)},  # Theocracy — Aristocratic State
 }
 
 
