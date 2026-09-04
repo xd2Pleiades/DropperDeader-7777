@@ -30,7 +30,6 @@ class CharacterCreation(Screen):
     }
     """
 
-    # TODO: this should come from the scenario/district the player picked in
     # the scenario screen (Karo / Duris / outer_rings), not be hardcoded.
     DEFAULT_DISTRICT = "karo"
     DEFAULT_PLANET = "karo"  # this tab is specifically "Karo SSA Registration"
@@ -38,6 +37,8 @@ class CharacterCreation(Screen):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self._generated_dob_str: str = ""
+        self._origin_district_num: int = 0
+        self._origin_region: str = ""
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -48,7 +49,6 @@ class CharacterCreation(Screen):
                     with VerticalScroll():
                         yield Label("Registration Number:", classes="reg_number")
                         yield Label("", id="reg_number_value")
-                        yield Button("Generate RN", id="gen_rn", classes="gen_button")
 
                         yield Label("Full Legal Name:", classes="field-label")
                         yield Input(placeholder="Enter First Name:", id="first_name")
@@ -102,33 +102,6 @@ class CharacterCreation(Screen):
             self.app.switch_screen("scenario")
             self.notify("Back to scenario screen.")
 
-        elif button_id == "gen_rn":
-            first = self.query_one("#first_name", Input).value.strip()
-            last = self.query_one("#last_name", Input).value.strip()
-            dob_str = self._generated_dob_str
-
-            if not first or not last:
-                self.notify("Generate or enter a name before generating a registration number.", severity="warning")
-                return
-            if not dob_str:
-                self.notify("Generate a date of birth before generating a registration number.", severity="warning")
-                return
-
-            middle = self.query_one("#middle_name", Input).value.strip()
-            full_name = " ".join(part for part in (first, middle, last) if part)
-
-            district_label = generate_district(self.DEFAULT_DISTRICT)
-            district_num = int(district_label.split()[-1])
-
-            rn = generate_registration_number(
-                planet=self.DEFAULT_PLANET,
-                region=self.DEFAULT_DISTRICT,
-                district_num=district_num,
-                full_name=full_name,
-                dob_str=dob_str,
-            )
-            self.query_one("#reg_number_value", Label).update(rn)
-
         elif button_id == "gen_name":
             full_name = generate_name(self.DEFAULT_DISTRICT, include_middle=True)
             parts = full_name.split(" ")
@@ -168,7 +141,26 @@ class CharacterCreation(Screen):
 
         elif button_id == "gen_district_origin":
             district, microdistrict = generate_origin(self.DEFAULT_DISTRICT)
+            self._origin_district_num = int(district.split()[-1])
+            self._origin_region = self.DEFAULT_DISTRICT
             self.query_one("#district_origin_value", Label).update(f"{district} / {microdistrict}")
+
+            # Auto-generate RN now that district is finalized
+            first = self.query_one("#first_name", Input).value.strip()
+            last = self.query_one("#last_name", Input).value.strip()
+            if not first or not last or not self._generated_dob_str:
+                self.notify("RN will generate once name and date of birth are also set.", severity="information")
+                return
+            middle = self.query_one("#middle_name", Input).value.strip()
+            full_name = " ".join(part for part in (first, middle, last) if part)
+            rn = generate_registration_number(
+                planet=self.DEFAULT_PLANET,
+                region=self._origin_region,
+                district_num=self._origin_district_num,
+                full_name=full_name,
+                dob_str=self._generated_dob_str,
+            )
+            self.query_one("#reg_number_value", Label).update(rn)
 
         elif button_id == "gen_district_current":
             # Current district isn't tied to where the character was born —
