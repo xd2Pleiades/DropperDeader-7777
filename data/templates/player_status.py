@@ -82,7 +82,7 @@ class Character:
     build: str = ""
     blood_type: str = ""
     fitness: str = ""
-    conditions: list = field(default_factory=list),
+    conditions: list = field(default_factory=list)
 
     trauma: int = 0
     stress: int = 2

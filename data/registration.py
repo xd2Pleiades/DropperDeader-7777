@@ -3,25 +3,21 @@ from __future__ import annotations
 import hashlib
 
 # PP-RRRR-DD-NNNN-NNNN-CC
-#   PP    = planet code (one of the 8 Federation planets)
-#   RRRR  = region code (administrative region *within* that planet —
-#           for Karo specifically this reuses dist.py's karo/duris/outer_rings
-#           scheme; note "duris" here is a Karo-internal region and is a
-#           different thing from the planet Duris below — same name,
-#           different level. Worth renaming one of them to avoid confusion.)
-#   DD    = district code
+#   PP        = planet code (one of the 8 Federation planets)
+#   RRRR      = region code (administrative region within that planet)
+#   DD        = district code
 #   NNNN-NNNN = serial, deterministically derived from the character's
 #               own data (name + DOB + district) so no two characters
 #               with different data can collide, and no external
 #               file/db is needed to track "used" numbers.
-#   CC    = checksum, computed purely from the digits before it — the
-#           whole number is arithmetically self-validating.
+#   CC        = checksum, computed purely from the digits before it —
+#               the whole number is arithmetically self-validating.
 
 PLANET_CODES = {
     "karo": "01",
     "utrique": "02",
     "caogo": "03",
-    "duris": "04",  # the PLANET Duris (see naming-collision note above)
+    "duris": "04",
     "oro": "05",
     "baifvis": "06",
     "bafwerk": "07",
@@ -29,9 +25,30 @@ PLANET_CODES = {
 }
 
 REGION_CODES = {
-    "karo": "0001",
-    "duris": "0002",  # Karo-internal region, NOT the planet
-    "outer_rings": "0003",
+    # Karo
+    "karo":         "0001",
+    "outer_rings":  "0002",
+    # Utrique
+    "utrique_r1":   "0003",
+    "utrique_r2":   "0004",
+    # Caogo
+    "caogo_r1":     "0005",
+    "caogo_r2":     "0006",
+    # Duris
+    "duris_r1":     "0007",
+    "duris_r2":     "0008",
+    # Oro
+    "oro_r1":       "0009",
+    "oro_r2":       "0010",
+    # Baifvis
+    "baifvis_r1":   "0011",
+    "baifvis_r2":   "0012",
+    # Bafwerk
+    "bafwerk_r1":   "0013",
+    "bafwerk_r2":   "0014",
+    # Latro
+    "latro_r1":     "0015",
+    "latro_r2":     "0016",
 }
 
 

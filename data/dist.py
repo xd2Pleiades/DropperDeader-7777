@@ -10,17 +10,22 @@ def _generate_microdistrict_code(district_num: int) -> str:
 
 
 LOCATIONS = {
-    "karo": {"district_range": (1, 20)},
-    "duris": {"district_range": (21, 40)},
-    "outer_rings": {"district_range": (41, 60)},
+    "karo":    {"district_range": (1,   20)},   # Capital — Federal State
+    "utrique": {"district_range": (21,  40)},   # Corporate Federative State
+    "caogo":   {"district_range": (41,  60)},   # Democratic Federative State
+    "duris":   {"district_range": (61,  80)},   # Corporate Federative State
+    "oro":     {"district_range": (81,  100)},  # Theocracy — Aristocratic State
+    "baifvis": {"district_range": (101, 120)},  # Federal State
+    "bafwerk": {"district_range": (121, 140)},  # Federal State
+    "latro":   {"district_range": (141, 160)},  # Theocracy — Aristocratic State
 }
 
 
 def generate_district(region: str) -> str:
     """
-    :param region: key into LOCATIONS ('karo', 'duris', 'outer_rings')
+    :param region: planet key into LOCATIONS ('karo', 'utrique', 'caogo', 'duris', 'oro', 'baifvis', 'bafwerk', 'latro')
     :return: a district label, e.g. 'District 11'
-    :raises KeyError: if region isn't recognized
+    :raises KeyError: if planet isn't recognized
     """
     low, high = LOCATIONS[region]["district_range"]
     return f"District {random.randint(low, high)}"
@@ -28,7 +33,7 @@ def generate_district(region: str) -> str:
 
 def generate_origin(region: str) -> tuple[str, str]:
     """
-    :param region: key into LOCATIONS ('karo', 'duris', 'outer_rings')
+    :param region: planet key into LOCATIONS ('karo', 'utrique', 'caogo', 'duris', 'oro', 'baifvis', 'bafwerk', 'latro')
     :return: (district_label, microdistrict_code) pair, e.g. ('District 11', 'MD-11-987Z')
     :raises KeyError: if region isn't recognized
     """
@@ -37,36 +42,3 @@ def generate_origin(region: str) -> tuple[str, str]:
     district_label = f"District {district_num}"
     microdistrict_code = _generate_microdistrict_code(district_num)
     return district_label, microdistrict_code
-
-
-# TODO: Fix, include all planets add planet codes and their districts
-"""
-Federation of Octavosol / Emergency Assembly Union
-EAU MEMBERS
-Dominant Species
-Theme/Inspiration 
-Capital Karo
-Homo Sapiens Sapiens
-Federal State
-Planet State of Utrique
-Homo Sapiens Sapiens
-Corporate Federative State
-Planet State of Caogo
-Neo-Homo Sapien Habilis
-Democratic Federative State
-Planet State of Duris
-Homo Sapiens Sapiens
-Corporate Federative State
-Theocracy of Oro
-Neo-Sapiens Mars
-Aristocratic State
-Planet State of Baifvis
-Homo Sapiens Sapiens
-Federal State
-Planet State Bafwerk
-Homo Sapiens Sapiens
-Federal State
-Theocracy Latro
- Sons of Mars
-Aristocratic State
-"""
