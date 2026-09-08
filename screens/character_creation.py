@@ -14,6 +14,7 @@ from data.dob import generate_dob, format_dob, MIN_AGE, MAX_AGE
 from data.name import generate_name
 from data.registration import generate_registration_number
 
+from widgets.health_panel import HealthPanel
 
 class CharacterCreation(Screen):
     CSS = """
@@ -80,7 +81,7 @@ class CharacterCreation(Screen):
 
                 with TabPane("Personal Health Status", id="phs"):
                     with VerticalScroll(id="phs_scroll"):
-                        yield Label("Vitals:", id="vitals")
+                        yield HealthPanel(id="health_panel")
             with VerticalScroll(id="advancement_pane"):
                 yield Label("Age 16 decisions")
                 # ... content for age 16 ...
