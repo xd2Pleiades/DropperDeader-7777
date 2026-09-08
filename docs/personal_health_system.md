@@ -32,7 +32,7 @@ Strength: str
 
 Musculature: str
 
-Body fat: float, Body Fat Composition: str
+Body fat: float, Body Fat Composition: str  
 
 Build: str Very thin, Thin, Lean, Average, Stocky, Muscular, Very Muscular, Godlike Physique
 
