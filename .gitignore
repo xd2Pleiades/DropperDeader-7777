@@ -1,0 +1,22 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python cache
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Other common stuff
+.DS_Store
+*.log
