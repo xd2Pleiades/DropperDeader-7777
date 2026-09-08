@@ -1,82 +1,71 @@
 #health_panel.py
+
 from textual.app import ComposeResult
 from textual.widget import Widget
-from textual.containers import VerticalScroll
 from textual.widgets import Label, Collapsible
+
+from data.templates.body import build_default_body
 
 
 class HealthPanel(Widget):
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.body = build_default_body()
+
     def compose(self) -> ComposeResult:
         yield Label("Health")
 
-        with Collapsible(title="Overall Health Status"):
-            with VerticalScroll():
-                yield Label("insert HealthStatus")
-                yield Label("insert FitnessStatus")
-                yield Label("Height:")
-                yield Label("Weight:")
-                yield Label("BMI:")
-                yield Label("insert BMI Classification")
+        with Collapsible(
+            title="Body Regions",
+            collapsed=False,
+        ):
+            for body_part in self.body:
+                with Collapsible(title=body_part.name):
 
-        with Collapsible(title="Vitals"):
-            with VerticalScroll():
-                yield Label("Heart rate:")
-                yield Label("Blood Pressure: Systolic")
-                yield Label("Blood Pressure: Diastolic")
-                yield Label("Body Temperature:")
-                yield Label("insert BreathingState")
-                yield Label("Oxygen Saturation:")
+                    if body_part.organs:
+                        with Collapsible(title="Organs"):
+                            for organ in body_part.organs:
+                                yield Label(
+                                    f"{organ.name}: {organ.condition.value}"
+                                )
 
-        with Collapsible(title="Body Build"):
-            with VerticalScroll():
-                yield Label("insert Strength")
-                yield Label("insert Musculature")
-                yield Label("Body Fat:")
-                yield Label("Body Fat Composition:")
-                yield Label("insert BodyBuild")
+                    if body_part.muscles:
+                        with Collapsible(title="Muscles"):
+                            for muscle in body_part.muscles:
+                                yield Label(
+                                    f"{muscle.name}: "
+                                    f"{muscle.condition.value}"
+                                )
 
-        with Collapsible(title="Body Regions"):
-            with VerticalScroll():
+                    if body_part.vessels:
+                        with Collapsible(title="Blood Vessels"):
+                            for vessel in body_part.vessels:
+                                yield Label(
+                                    f"{vessel.name}: "
+                                    f"{vessel.condition.value}"
+                                )
 
-                with Collapsible(title="Head"):
-                    yield Collapsible(title="Skull")
-                    yield Collapsible(title="Face")
-                    yield Collapsible(title="Jaw")
+                    if body_part.tissues:
+                        with Collapsible(title="Tissues"):
+                            for tissue in body_part.tissues:
+                                yield Label(
+                                    f"{tissue.name}: "
+                                    f"{tissue.condition.value}"
+                                )
 
-                    with Collapsible(title="Neck"):
-                        yield Collapsible(title="Throat")
+                    if body_part.bones:
+                        with Collapsible(title="Bones"):
+                            for bone in body_part.bones:
+                                yield Label(
+                                    f"{bone.name}: "
+                                    f"{bone.condition.value}"
+                                )
 
-                with Collapsible(title="Torso"):
-                    yield Collapsible(title="Chest")
-                    yield Collapsible(title="Abdomen")
-                    yield Collapsible(title="Back")
-                    yield Collapsible(title="Pelvis")
-
-                with Collapsible(title="Shoulders"):
-                    with Collapsible(title="Right"):
-                        yield Label("insert R Shoulder info")
-                        yield Collapsible(title="R Elbow")
-                        yield Collapsible(title="R Wrist")
-                        yield Collapsible(title="R Hand")
-
-                    with Collapsible(title="Left"):
-                        yield Label("insert L Shoulder info")
-                        yield Collapsible(title="L Elbow")
-                        yield Collapsible(title="L Wrist")
-                        yield Collapsible(title="L Hand")
-
-                with Collapsible(title="Legs"):
-                    with Collapsible(title="Right"):
-                        yield Collapsible(title="R Thigh")
-                        yield Collapsible(title="R Knee")
-                        yield Collapsible(title="R Lower Leg")
-                        yield Collapsible(title="R Ankle")
-                        yield Collapsible(title="R Foot")
-
-                    with Collapsible(title="Left"):
-                        yield Collapsible(title="L Thigh")
-                        yield Collapsible(title="L Knee")
-                        yield Collapsible(title="L Lower Leg")
-                        yield Collapsible(title="L Ankle")
-                        yield Collapsible(title="L Foot")
+                    if body_part.wounds:
+                        with Collapsible(title="Wounds"):
+                            for wound in body_part.wounds:
+                                yield Label(
+                                    f"{wound.wound_type.value} - "
+                                    f"{wound.severity.value}"
+                                )
