@@ -17,6 +17,12 @@ class HealthPanel(Widget):
     def compose(self) -> ComposeResult:
         yield Label("Health")
         with VerticalScroll():
+            with Collapsible(title="Overall Health Condition"):
+                pass
+            with Collapsible(title="Vitals"):
+                pass
+            with Collapsible(title="Body Build"):
+                pass
             with Collapsible(
                     title="Body Regions",
                     collapsed=False,
