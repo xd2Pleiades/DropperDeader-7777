@@ -3,7 +3,7 @@
 from textual.app import ComposeResult
 from textual.containers import VerticalScroll
 from textual.widget import Widget
-from textual.widgets import Label, Collapsible
+from textual.widgets import Label, Collapsible, Input
 
 from data.templates.body import build_default_body
 
@@ -18,11 +18,60 @@ class HealthPanel(Widget):
         yield Label("Health")
         with VerticalScroll():
             with Collapsible(title="Overall Health Condition"):
-                pass
+                yield Label(
+                    f"Health Status:{health_status}"
+                )
+                yield Label(
+                    f"Fitness Status:{fitness_status}"
+                )
+                yield Label(
+                    "Height"
+                )
+                yield Input(
+                    placeholder="Enter Height",
+                )
+                yield Label(
+                    "Weight"
+                )
+                yield Input(
+                    "Enter Weight",
+                )
+                yield Label(
+                    "BMI"
+                )
+                yield Input(
+                    "Enter BMI",
+                )
+                yield Label(
+                    f"{BMI_classification}"
+                )
             with Collapsible(title="Vitals"):
-                pass
+                yield Label(
+                    f"Heart Rate:{bpm} bpm"
+                )
+                yield Label(
+                    f"Blood Pressure:{systolic} mmHg / {diastolic} mmHg"
+                )
+                yield Label(
+                    f"Body Temperature:{body_temperature}C"
+                )
+                yield Label(
+                    f"Respiratory rate: {breathes_pm} per minute"
+                )
+                yield Label(
+                    f"Oxygen saturation: {oxygen_saturation}%"
+                )
             with Collapsible(title="Body Build"):
-                pass
+                yield Label(
+                    f"Strength: {strength}"
+                )
+                yield Label(
+                    f"Musculature: {muscles}"
+                )
+                yield Label(
+                    f"Body fat: {body_fat}"
+                    f"\n Body fat Composition: {body_fat_comp}%"
+                )
             with Collapsible(
                     title="Body Regions",
                     collapsed=False,
